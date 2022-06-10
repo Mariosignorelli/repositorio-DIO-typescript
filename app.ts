@@ -1,16 +1,56 @@
-let button = document.getElementById('btn')
-let input1 = document.getElementById('input1')  as HTMLInputElement;
-let input2 = document.getElementById('input2') as HTMLInputElement;
-
-function adicionaNumero(numero1:number, numero2:number){
-    return numero1 + numero2
+const pessoa = {
+nome: 'Mario',
+idade: 40,
+profissao: 'dev-frontEnd'
 }
 
+pessoa.idade = 24;
 
-if(button){
-    button.addEventListener('click', ()=>{
-        if(input1 && input2){
-            console.log(adicionaNumero(Number(input1.value), Number(input2.value)));
-        }
-    })
+const gabriel = ( nome:string, idade:Number, profissao:string) => {
+nome: 'Gabriel';
+idade: 22;
+profissao:'enfermeiro';
 }
+const Elaine = (nome:string, idade:Number, profissao:String) => {
+    nome: 'Elaine';
+    idade: 42;
+    profissao: 'copeira';
+};
+
+// Enum/////////////
+enum Profissao{
+    Professora,
+    pintor,
+    atriz,
+    mecanico
+}
+interface Pessoa {
+    nome:string;
+    idade:Number;
+    profissao?:Profissao
+}
+const Vanessa: Pessoa ={
+    nome:'Vanessa',
+    idade: 30,
+    profissao: Profissao.atriz
+}
+interface Estudante extends Pessoa{
+    materias: String[]
+}
+const Mayara: Estudante ={
+    nome:'Mayara',
+    idade:19,
+    profissao:Profissao.Professora,
+    materias:['html,css.js']
+}
+const Alex: Estudante = {
+    nome:'Alex',
+    idade:45,
+    materias:['caulc,logica,programção']
+}
+ function listar(lista: String[]){
+    for(const item of lista){
+        console.log(' -', item)
+    }
+ }
+ listar(Alex.materias)
